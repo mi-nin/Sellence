@@ -1,0 +1,26 @@
+﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+WORKDIR /app
+EXPOSE 80
+EXPOSE 443
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+COPY ["services/admin/Sellence.Admin.Api/Sellence.Admin.Api.csproj", "services/admin/Sellence.Admin.Api/"]
+COPY ["services/admin/Sellence.Admin.Handlers/Sellence.Admin.Handlers.csproj", "services/admin/Sellence.Admin.Handlers/"]
+COPY ["services/admin/Sellence.Admin.CORS/Sellence.Admin.CORS.csproj", "services/admin/Sellence.Admin.CORS/"]
+COPY ["shared/Sellence.Shared.Models/Sellence.Shared.Models.csproj", "shared/Sellence.Shared.Models/"]
+COPY ["shared/Sellence.Shared.Contracts/Sellence.Shared.Contracts.csproj", "shared/Sellence.Shared.Contracts/"]
+COPY ["shared/Sellence.Shared.Utilities/Sellence.Shared.Utilities.csproj", "shared/Sellence.Shared.Utilities/"]
+COPY ["data/Sellence.Data/Sellence.Data.csproj", "data/Sellence.Data/"]
+RUN dotnet restore "services/admin/Sellence.Admin.Api/Sellence.Admin.Api.csproj"
+COPY . .
+WORKDIR "/src/services/admin/Sellence.Admin.Api"
+RUN dotnet build "Sellence.Admin.Api.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "Sellence.Admin.Api.csproj" -c Release -o /app/publish
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "Sellence.Admin.Api.dll"]

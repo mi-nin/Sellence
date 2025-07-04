@@ -1,0 +1,43 @@
+﻿version: '3.8'
+
+services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sellence-sqlserver
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong@Passw0rd
+      - MSSQL_PID=Express
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+
+  admin-api:
+    build: 
+      context: .
+      dockerfile: Dockerfile.admin
+    container_name: sellence-admin-api
+    ports:
+      - "5001:80"
+    depends_on:
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=SellenceDB;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true;
+
+  client-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    container_name: sellence-client-api
+    ports:
+      - "5002:80"
+    depends_on:
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=SellenceDB;User Id=sa;Password=YourStrong@Passw0rd;TrustServerCertificate=true;
+
+volumes:
+  sqlserver-data:

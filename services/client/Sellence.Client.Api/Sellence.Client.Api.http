@@ -1,0 +1,6 @@
+@Sellence.Client.Api_HostAddress = http://localhost:5259
+
+GET {{Sellence.Client.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

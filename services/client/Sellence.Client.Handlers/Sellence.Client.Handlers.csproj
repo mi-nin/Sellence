@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.0" />
+    <PackageReference Include="FluentValidation" Version="12.0.0" />
+    <PackageReference Include="Mediator.Abstractions" Version="2.1.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\shared\Sellence.Shared.Models\Sellence.Shared.Models.csproj" />
+    <ProjectReference Include="..\..\..\shared\Sellence.Shared.Contracts\Sellence.Shared.Contracts.csproj" />
+    <ProjectReference Include="..\..\..\data\Sellence.Data\Sellence.Data.csproj" />
+  </ItemGroup>
+
+</Project>
