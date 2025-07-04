@@ -7,7 +7,7 @@ A modern microservice platform built with .NET 8 and React, featuring clean arch
 - **Microservices**: Separated Admin and Client services for scalability
 - **CQRS**: Command Query Responsibility Segregation using Mediator pattern
 - **Clean Architecture**: Clear separation of concerns with domain-driven design
-- **Frontend**: Blazor Server (Admin) + Next.js (Client) for optimal user experience
+- **Frontend**: Blazor Server for Admin dashboard + Next.js for Client interface
 
 ## 🚀 Getting Started
 
@@ -69,7 +69,7 @@ Before running the application, ensure you have:
    dotnet run --project services/client/Sellence.Client.Api
    ```
 
-   **Admin Frontend:**
+   **Admin Frontend (Blazor):**
 
    ```bash
    dotnet run --project frontend/sellence-admin
@@ -113,12 +113,12 @@ sellence/
 
 Once running, access the services at:
 
-| Service         | URL                   | Description               |
-| --------------- | --------------------- | ------------------------- |
-| Admin API       | http://localhost:5001 | Administrative operations |
-| Client API      | http://localhost:5002 | Client-facing operations  |
-| Admin Frontend  | http://localhost:5003 | Admin dashboard           |
-| Client Frontend | http://localhost:3000 | Customer interface        |
+| Service                 | URL                   | Description               |
+| ----------------------- | --------------------- | ------------------------- |
+| Admin API               | http://localhost:5001 | Administrative operations |
+| Client API              | http://localhost:5002 | Client-facing operations  |
+| Admin Frontend (Blazor) | http://localhost:5003 | Admin dashboard           |
+| Client Frontend         | http://localhost:3000 | Customer interface        |
 
 ## 📋 Available Scripts
 
@@ -167,26 +167,6 @@ Apply migrations:
 dotnet ef database update
 ```
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-For support and questions:
-
-- Create an issue in the repository
-- Check the documentation in the `/docs` folder
-- Contact the development team
-
 ---
 
-Built with ❤️ using .NET 8 and Next.js
+**Note:** This is a Proof of Concept (POC) project demonstrating microservice architecture patterns with .NET 8, Blazor Server for admin interface, and Next.js for client interface.
