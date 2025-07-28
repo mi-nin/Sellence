@@ -37,6 +37,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "frontend", "frontend", "{CE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sellence-admin", "frontend\sellence-admin\sellence-admin.csproj", "{B558D1C7-4A5F-4505-8CF0-D102A4965061}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -197,5 +202,8 @@ Global
 		{23F294ED-B798-44D8-80ED-00F6597CA677} = {347C760C-36C0-236D-636D-A1C84480C2C3}
 		{FA845694-35C6-44FA-9792-14C74919D4ED} = {347C760C-36C0-236D-636D-A1C84480C2C3}
 		{B558D1C7-4A5F-4505-8CF0-D102A4965061} = {CE609670-85B9-0D16-FB54-ED063D5D8A6D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A0ACF84-68FE-45AB-87DB-813F27C1C9DA}
 	EndGlobalSection
 EndGlobal
