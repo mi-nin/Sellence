@@ -1,4 +1,4 @@
-using sellence_admin.Components;
+﻿using SellenceAdmin.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 

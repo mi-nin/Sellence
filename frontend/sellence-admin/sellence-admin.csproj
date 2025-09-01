@@ -18,10 +18,6 @@
     <ProjectReference Include="..\..\shared\Sellence.Shared.Models\Sellence.Shared.Models.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Components\Pages\Products\" />
-  </ItemGroup>
-
   <PropertyGroup>
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
